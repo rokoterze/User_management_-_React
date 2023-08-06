@@ -1,0 +1,13 @@
+.header{
+    grid-area: header;
+    
+    background-color: #2F4050;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: whitesmoke;
+
+    height: 100px!important;
+}

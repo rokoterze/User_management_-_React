@@ -1,0 +1,23 @@
+.App{
+    width: 100vw;
+    height: 100vh;
+    background-color: whitesmoke;
+
+    display: grid;
+    grid-template-areas:
+    'header header'
+    'sidebar main'
+    ;
+
+    grid-template-columns: min-content;
+    grid-template-rows: min-content; 
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+

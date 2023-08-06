@@ -1,0 +1,127 @@
+#main{
+    grid-area: main;
+    overflow: auto;
+
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'table'
+    'info';
+}
+
+#main .main-header{
+    grid-area: header;
+
+    background-color:  #597895;
+    
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.main-header #search-input{
+    height: 30px;
+    width: 200px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.main-header #search-input:focus{
+    background-color: #dae4ec;
+
+    border: none;
+}
+
+.main-header .main-header-buttons{
+    display: flex;
+}
+.main-header .icon{
+    color: rgba(255, 255, 255);
+    padding: 4px;
+    margin: 5px;
+
+    border: transparent;
+    border-radius: 10px;
+    background-color: #3e5468;;
+
+    height: 25px;
+}
+
+.main-header .icon:hover{
+    cursor: pointer;
+
+    color: #3e5468;
+    background-color: white;
+    
+}
+
+#main #main-table{
+    grid-area: table;
+
+    background-color: darkgrey;
+    overflow: auto;
+}
+
+#main-table-fetch{
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+    border-radius: 30px;
+}
+  
+  ::-webkit-scrollbar-track {
+    background:  #2F4050; 
+}
+   
+  ::-webkit-scrollbar-thumb {
+    background: #bbb; 
+}
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ccc; 
+}
+
+#avatar-user{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: 2px solid #293846;
+}
+
+#json-download-btn{
+    color: rgb(0, 0, 0);
+
+    height: 25px;
+    width: 50px;
+
+    border-radius: 10px;
+    border: 1px dotted black;
+
+}
+
+#json-download-btn:hover{
+    cursor: pointer;
+}
+
+#main .main-info{
+    grid-area: info;
+
+    background-color: #2F4050;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: whitesmoke;
+
+    height: 100px!important;
+}
