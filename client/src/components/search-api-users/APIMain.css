@@ -7,16 +7,22 @@
     'header'
     'table'
     'info';
+
+    margin: 10px;
+
 }
 
-#main .main-header{
+.main-header{
     grid-area: header;
 
-    background-color:  #597895;
+    /* background-color: #ccc; */
+    /* background-color:  #9972a4; */
+    background-image: linear-gradient(to left, #ccc, #4c205a);
+    border-radius: 10px;
     
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: 40px;
 
     align-items: center;
     justify-content: space-between;
@@ -25,24 +31,25 @@
     padding-right: 30px;
 }
 
-.main-header #search-input{
-    height: 30px;
+#search-input{
+    height: 28px;
     width: 200px;
 
     border: none;
     border-radius: 5px;
 }
 
-.main-header #search-input:focus{
+#search-input:focus{
     background-color: #dae4ec;
 
     border: none;
 }
 
-.main-header .main-header-buttons{
+.main-header-buttons{
     display: flex;
 }
-.main-header .icon{
+
+.buttonIcon{
     color: rgba(255, 255, 255);
     padding: 4px;
     margin: 5px;
@@ -54,74 +61,143 @@
     height: 25px;
 }
 
-.main-header .icon:hover{
+.buttonIcon:hover{
     cursor: pointer;
 
     color: #3e5468;
     background-color: white;
+
+    transition: 300ms;
     
 }
 
-#main #main-table{
+#main-table{
     grid-area: table;
-
-    background-color: darkgrey;
     overflow: auto;
+
+    margin: 5px;
+    border-radius: 10px;
 }
 
 #main-table-fetch{
     text-align: center;
+    width: 100%;
 }
 
+
 ::-webkit-scrollbar {
-    width: 20px;
-    border-radius: 30px;
+    width: 15px;
+    display: none;
+    /* MAKNIT AKO ZELIM SCROLLBAR! */
 }
   
-  ::-webkit-scrollbar-track {
-    background:  #2F4050; 
+::-webkit-scrollbar-track {
+    background:  #ccc; 
 }
    
-  ::-webkit-scrollbar-thumb {
-    background: #bbb; 
+::-webkit-scrollbar-thumb {
+    background: #4c205a; 
+    border: 1px solid white;
+    border-radius: 10px;
 }
   
-  ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #ccc; 
 }
 
 #avatar-user{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
+    padding: 2px;
     border-radius: 50px;
-    border: 2px solid #293846;
 }
 
+.idTd{
+    color: white;
+    font-weight: bold;
+    color: rgb(232, 63, 0); 
+}
+.avatarTd{
+    display: flex;
+    justify-content: center;
+}
+.loginTd{
+    color: purple;
+    font-weight: bolder;
+    text-align: left;
+}
+.linkTd{
+    text-align: left;
+}
+.link{
+    text-decoration: none;
+    color: purple;
+}
+.downloadTd{
+    align-items: center;
+}
+
+
 #json-download-btn{
-    color: rgb(0, 0, 0);
+    color: white;
 
-    height: 25px;
-    width: 50px;
+    height: 30px;
+    width: auto;
 
-    border-radius: 10px;
-    border: 1px dotted black;
+    border-radius: 6px;
+    border: none;
 
+    /* background-color: #04AA6D; */
+    background-color: #712f86;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+#save-to-database-btn{
+    color: white;
+
+    height: 30px;
+    width: auto;
+
+    border-radius: 6px;
+    border: none;
+
+    /* background-color: #0481aa; */
+    background-color: rgb(232, 63, 0);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }
 
 #json-download-btn:hover{
     cursor: pointer;
 }
 
-#main .main-info{
+#save-to-database-btn:hover{
+    cursor: pointer;
+}
+
+.main-info{
     grid-area: info;
 
-    background-color: #2F4050;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: whitesmoke;
+    background-image: linear-gradient(to bottom, rgba(204, 204, 204, 0.1), #4c205a);
+    border-radius: 10px;
+    margin: 10px;
 
     height: 100px!important;
+
+    font-weight: bold;
+    color: white;
 }

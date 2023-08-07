@@ -1,7 +1,11 @@
 .sidebar{
     grid-area: sidebar;
-
-    background-color: #3e5468;
+    /* background-color: rgba(200, 200, 200); */
+    background-image: linear-gradient(to top, rgb(76, 32, 90,0.8) , rgb(200, 200, 200,0.3));
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 
     width: 300px;
 }
@@ -23,21 +27,27 @@
     display: flex;
     flex-direction: row;
 
-    color: white;
+    color: rgba(76, 32, 90, 1);
 
     justify-content: center;
     align-items: center;
-
-    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 }
 
 .sidebarList .row:hover{
     cursor: pointer;
-    background-color: #2f4050;
+    background-color: rgba(113, 47, 134, 1);
+    color: white;
+    
+    border-radius: 0px 10px;
+    transition: 250ms;
 }
 
 .sidebarList #active{
-    background-color: #293846;
+    background-color: rgba(76, 32, 90,1);
+    color: white;
+
+    border-radius: 0px 10px;
+    background-image: linear-gradient(to right,rgb(232, 63, 0), rgba(76, 32, 90));
 }
 
 .row #icon{

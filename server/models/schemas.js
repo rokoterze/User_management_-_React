@@ -12,8 +12,7 @@ const userSchema = new Schema(
     }
 )
 
-const Users = mongoose.model('Users', userSchema, 'users'); //users -> table name
-
+const Users = mongoose.model('Users', userSchema, 'users'); 
 const mySchemas = {'Users':Users}
 
 module.exports = mySchemas;
