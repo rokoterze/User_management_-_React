@@ -1,0 +1,146 @@
+
+
+#main-table-fetch {
+    text-align: center;
+    width: 100%;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 10px;
+
+    vertical-align: middle;
+}
+
+th {
+    background-color: #4c205a;
+
+    color: white;
+    height: 40px;
+    border: none;
+}
+
+tr {
+    background-color: rgb(215, 215, 215);
+    border: none;
+
+}
+
+td {
+    font-size: 14px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+#avatar-user {
+    width: 40px;
+    height: 40px;
+    padding: 2px;
+    border-radius: 50px;
+}
+
+.idTd {
+    color: white;
+    font-weight: bold;
+    color: rgb(232, 63, 0);
+}
+
+.avatarTd {
+    display: flex;
+    justify-content: center;
+}
+
+.loginTd {
+    color: purple;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.linkTd {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: purple;
+}
+
+.downloadTd {
+    align-items: center;
+}
+
+#json-download-btn {
+    color: white;
+
+    height: 30px;
+    width: auto;
+
+    border-radius: 6px;
+    border: none;
+
+    background-color: #712f86;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#save-to-database-btn {
+    color: white;
+
+    height: 30px;
+    width: auto;
+
+    border-radius: 6px;
+    border: none;
+
+    background-color: rgb(232, 63, 0);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#json-download-btn:hover {
+    cursor: pointer;
+}
+
+#save-to-database-btn:hover {
+    cursor: pointer;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 15px;
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4c205a;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+/**/

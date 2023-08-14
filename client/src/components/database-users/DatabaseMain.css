@@ -1,0 +1,52 @@
+#main {
+    grid-area: main;
+    overflow: auto;
+
+    display: grid;
+    grid-template-areas:
+        'header'
+        'table';
+
+    margin: 10px;
+
+    height: 100%;
+
+    grid-template-rows: 50px;
+
+}
+
+.main-header {
+    grid-area: header;
+
+    background-image: linear-gradient(to left, #ccc, #4c205a);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    padding-left: 30px;
+}
+
+#search-input {
+    height: 28px;
+    width: 200px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+#search-input:focus {
+    background-color: #dae4ec;
+    border: none;
+    outline: none;
+}
+
+#main-table {
+    grid-area: table;
+    overflow: auto;
+
+    margin: 5px;
+    border-radius: 10px;
+}

@@ -1,60 +1,26 @@
-.App{
+.App {
     width: 100vw;
     height: 100vh;
     background-color: white;
 
     display: grid;
     grid-template-areas:
-    'header header'
-    'sidebar main'
+        'header header'
+        'sidebar main'
+        'sidebar info'
     ;
 
     grid-template-columns: min-content;
-    grid-template-rows: min-content; 
+    grid-template-rows: 10% 80% 10%;
 
     font-family: 'Poppins';
 
     background-image: url("./assets/background.jpg");
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
-}
-
-thead th {
-    position: sticky;
-    top: 0; 
-}
-table{
-    border-collapse: collapse;
-    border-radius: 10px;
-
-    vertical-align: middle;
-}
-th{
-    background-color: #4c205a;
-    /* background-color: #2F4050; */
-    color: white;
-    height: 40px;
-    border: none;
-}
-tr{
-    background-color: rgb(215, 215, 215);
-    border: none;
-
-}
-td{
-    font-size: 14px;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-    color: black;
-  }
-
-a{
-    text-decoration: none;
 }
 
 

@@ -1,9 +1,9 @@
 import APIMainData from "./APIMainData"
 
-export default function APIMain(){
-    return(
+export default function APIMain() {
+    return (
         <div id="main">
-            <APIMainData/>
+            <APIMainData />
         </div>
     )
 }

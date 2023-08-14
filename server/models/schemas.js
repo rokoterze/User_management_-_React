@@ -4,11 +4,9 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
     {
         id: {type: String},
-        login:{type: String},
         avatar_url: {type: String},
-        url: {type: String},
-        name: {type: String},
-        entryDate: {type:Date, default:Date.now}
+        login: {type: String},
+        html_url: {type: String}
     }
 )
 
@@ -16,3 +14,4 @@ const Users = mongoose.model('Users', userSchema, 'users');
 const mySchemas = {'Users':Users}
 
 module.exports = mySchemas;
+

@@ -6,19 +6,19 @@ import StorageIcon from '@mui/icons-material/Storage';
 export const SidebarData = [
     {
         title: "Home",
-        icon: <HomeIcon/>,
+        icon: <HomeIcon />,
         link: "/home"
     },
 
     {
         title: "API Users",
-        icon: <SearchIcon/>,
+        icon: <SearchIcon />,
         link: "/api-users"
     },
 
     {
         title: "Database Users",
-        icon: <StorageIcon/>,
+        icon: <StorageIcon />,
         link: "/database-users"
     }
 ]

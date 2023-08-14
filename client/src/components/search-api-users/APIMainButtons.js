@@ -4,17 +4,17 @@ import RemoveIcon from '@mui/icons-material/Remove';
 
 export const APIMainButtons = [
     {
-        icon: <AddIcon/>,
+        icon: <AddIcon />,
         link: "/addUser"
     },
 
     {
-        icon: <EditIcon/>,
+        icon: <EditIcon />,
         link: "/editUser"
     },
 
     {
-        icon: <RemoveIcon/>,
+        icon: <RemoveIcon />,
         link: "/removeUser"
     }
 ]

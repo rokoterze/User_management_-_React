@@ -1,80 +1,65 @@
-//import Defunkt from "../../database/defunkt.json"
-import axios from "axios"
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function DatabaseMainData(){
-    const [userId, setUserId] = useState('')
-    const [userLogin, setUserLogin] = useState('')
-    const [userAvatar, setUserAvatar] = useState('')
-    const [userURL, setUserURL] = useState('')
-    const [userFullname, setUserFullname] = useState('')
+const DatabaseMainData = () => {
+  const [users, setUsers] = useState([]);
+  const [filterText, setFilterText] = useState("");
 
-    const [selectData, setSelectData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:4000/getUsers")
+      .then((response) => {
+        setUsers(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
-    useEffect(() => {
-        let processing = true
-        axiosFetchData(processing)
-        return() => {
-            processing = false
-        }
-    },[])
+  const filteredUsers = users.filter((user) => {
+    return user.login.toLowerCase().includes(filterText.toLowerCase());
+  });
 
-    const axiosFetchData = async(processing) => {
-        await axios.get('http://localhost:4000/users')
-        .then(res => {
-            if(processing){
-                setSelectData(res.data);
-            }
-        }).catch(err => console.log(err))
-    }
-    const axiosPostData = async() => {
-        const postData = {
-            id: userId,
-            login: userLogin,
-            avatar_url: userAvatar,
-            url: userURL,
-            name: userFullname
-        }
-        await axios.post('http://localhost:4000/insertUser', postData) // ovo znaci da postamo na ovaj URL! u router.js!
-        //.then( moze ic response success)
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault()
-            //dodat provjeru je li forma prazna
-        axiosPostData()
-    }
+  return (
+    <>
+      <div className="main-header">
+        <div className="main-header-search">
+          <input type="text" id="search-input" placeholder="Live search by Username.." onChange={(event) => setFilterText(event.target.value)} />
+        </div>
+      </div>
+      
+      <div id="main-table">
+        <table id='main-table-fetch'>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Avatar</th>
+              <th>Username</th>
+              <th>Profile Link</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredUsers.map((user, key) => (
+              <tr key={key}>
+                <td className='idTd'>{user.id}</td>
+                <td className='avatarTd'><img src={user.avatar_url} alt="" id='avatar-user' /></td>
+                <td className='loginTd'>{user.login}</td>
+                <td className='linkTd'><a href={user.html_url} target='blank' className='link'>{user.html_url}</a></td>
+                <td><EditIcon /></td>
+                <td><DeleteIcon
+                onClick={() => {}} 
+                /></td>
+              </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  );
+};
 
-    return(
-           //testna forma za database
-           //umisto ovoga, dodat tablicu di ce bit prikazani svi iz baze useri, nakon klika na usera triba se otvorit modal forma
-            <>
-        <h1>Insert a new User</h1>
-
-        <form className="insertForm">
-            <label>ID</label><br />
-            <input type="text" id="userId" name="userId" value={userId} onChange={(e) => setUserId(e.target.value)}/>
-            <br />
-            
-            <label>Login</label><br />
-            <input type="text" id="userLogin" name="userLogin" value={userLogin} onChange={(e) => setUserLogin(e.target.value)}/>
-            <br />
-            
-            <label>Avatar URL</label><br />
-            <input type="text" id="userAvatar" name="userAvatar" value={userAvatar} onChange={(e) => setUserAvatar(e.target.value)}/>
-            <br />
-            
-            <label>URL</label><br />
-            <input type="text" id="userURL" name="userURL" value={userURL} onChange={(e) => setUserURL(e.target.value)}/>
-            <br />
-            
-            <label>Name</label><br />
-            <input type="text" id="userFullname" name="userFullname" value={userFullname} onChange={(e) => setUserFullname(e.target.value)}/>
-            <br />
-
-            <button type="submit" onClick={handleSubmit}>Submit</button>
-            <br />
-        </form>
-        </>
-        )
-}
+export default DatabaseMainData;
