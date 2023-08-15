@@ -1,5 +1,3 @@
-
-
 #main-table-fetch {
     text-align: center;
     width: 100%;
@@ -49,7 +47,7 @@ a {
     width: 40px;
     height: 40px;
     padding: 2px;
-    border-radius: 50px;
+    border-radius: 100%;
 }
 
 .idTd {
@@ -82,7 +80,7 @@ a {
     align-items: center;
 }
 
-#json-download-btn {
+.btn{
     color: white;
 
     height: 30px;
@@ -91,38 +89,32 @@ a {
     border-radius: 6px;
     border: none;
 
-    background-color: #712f86;
-
     display: flex;
 
     align-items: center;
     justify-content: center;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+
+#json-download-btn {
+    background-color: #712f86;
 }
 
 #save-to-database-btn {
-    color: white;
-
-    height: 30px;
-    width: auto;
-
-    border-radius: 6px;
-    border: none;
-
     background-color: rgb(232, 63, 0);
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
 }
 
-#json-download-btn:hover {
-    cursor: pointer;
+#open-profile-btn{
+    background-color:  #712f86;
 }
 
-#save-to-database-btn:hover {
-    cursor: pointer;
+#delete-profile-btn{
+    background-color: red;
 }
+
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {

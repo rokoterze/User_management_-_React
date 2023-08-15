@@ -1,9 +1,10 @@
 .App {
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    
 
     display: grid;
+
     grid-template-areas:
         'header header'
         'sidebar main'
@@ -15,12 +16,20 @@
 
     font-family: 'Poppins';
 
-    background-image: url("./assets/background.jpg");
+    background-image: url("./assets/background-light.jpg");
+
+    
 }
 
 body {
     margin: 0;
     padding: 0;
+}
+
+
+#dark{
+    background-image: none;
+    background-color: rgb(29, 31, 44);
 }
 
 

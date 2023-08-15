@@ -13,26 +13,31 @@ import APIMain from './components/search-api-users/APIMain';
 import DatabaseMain from './components/database-users/DatabaseMain';
 import Info from './components/info/Info';
 
+import { Route, Routes } from "react-router-dom";
+import { createContext, useState } from 'react';
 
-
-import { Route, Routes } from "react-router-dom"
-
-
-
+export const ThemeContext = createContext(null);
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+  }
   return (
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomeMain />} />
-        <Route path="/home" element={<HomeMain />} />
-        <Route path="/api-users" element={<APIMain />} />
-        <Route path="/database-users" element={<DatabaseMain />} />
-      </Routes>
-      <Sidebar />
-      <Info />
-    </div>
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <div className="App" id={theme}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomeMain />} />
+          <Route path="/home" element={<HomeMain />} />
+          <Route path="/api-users" element={<APIMain />} />
+          <Route path="/database-users" element={<DatabaseMain />} />
+        </Routes>
+        <Sidebar />
+        <Info />
+      </div>
+    </ThemeContext.Provider>
+
   );
 }
 

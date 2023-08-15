@@ -1,16 +1,61 @@
-.header {
+.header{
     grid-area: header;
-
-    background-color: #4c205a;
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     border-radius: 10px;
     margin: 10px;
     color: white;
 
-    font-weight: bold !;
-
+    padding-left: 50px;
+    padding-right: 50px;
 }
+
+#light .header {
+    background-color: rgb(76, 32, 90);
+}
+
+#dark .header{
+    background-color: rgb(25, 7, 65);
+}
+
+.invisible{
+    visibility: hidden;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.switch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.time{
+    width: 100px;
+    height: 100%;
+    max-height: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(255, 255, 255, 0.751);
+    color: purple;
+
+    font-size: 14px;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.time:hover{
+    cursor: default;
+}
+

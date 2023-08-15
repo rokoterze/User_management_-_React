@@ -6,6 +6,8 @@ import SaveIcon from '@mui/icons-material/Save';
 
 function APIMainData() {
     const [users, setUsers] = useState([]);
+    const [filterText, setFilterText] = useState("");
+
     const API_URL = "https://api.github.com/users";
 
     useEffect(() => {
@@ -15,7 +17,18 @@ function APIMainData() {
             .catch(err => console.log(err))
     }, [])
 
+    const filteredUsers = users.filter((user) => {
+        return user.login.toLowerCase().includes(filterText.toLowerCase());
+      });
+
     return (
+        <>
+            <div className="main-header">
+                <div className="main-header-search">
+                    <input type="text" id="search-input" placeholder="Live search by Username.." onChange={(event) => setFilterText(event.target.value)} />
+                </div>
+            </div>
+
             <div id="main-table">
                 <table id='main-table-fetch'>
                     <thead>
@@ -30,7 +43,7 @@ function APIMainData() {
                         </tr>
                     </thead>
                     <tbody>
-                        {users.map((record, key) => (
+                        {filteredUsers.map((record, key) => (
                             <tr key={key}>
                                 <td className='idTd'>{record.id}</td>
                                 <td className='avatarTd'><img src={record.avatar_url} alt="" id='avatar-user' /></td>
@@ -39,7 +52,7 @@ function APIMainData() {
                                 <td>{record.type}</td>
 
                                 <td className='downloadTd'>
-                                    <button id='json-download-btn'
+                                    <button className='btn' id='json-download-btn'
                                         onClick={() => {
                                             const USER_URL = 'https://api.github.com/users/' + record.login;
                                             const filename = record.login + '.json';
@@ -58,10 +71,10 @@ function APIMainData() {
                                 </td>
 
                                 <td>
-                                    <button id='save-to-database-btn'
+                                    <button className='btn' id='save-to-database-btn'
                                         onClick={() => {
                                             const USER_URL = `https://api.github.com/users/${record.login}`;
-                                            
+
                                             fetch(USER_URL)
                                                 .then(async () => {
                                                     const postData = {
@@ -72,7 +85,6 @@ function APIMainData() {
                                                         repos_url: record.repos_url
                                                     }
                                                     await axios.post('http://localhost:4000/insertUser', postData)
-                                                    alert(USER_URL)
                                                 })
                                         }}>
                                         <SaveIcon /> Add to DB
@@ -83,6 +95,7 @@ function APIMainData() {
                     </tbody>
                 </table>
             </div>
+        </>
     )
 }
 
