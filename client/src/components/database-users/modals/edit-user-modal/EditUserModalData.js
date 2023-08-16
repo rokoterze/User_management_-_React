@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SaveIcon from '@mui/icons-material/Save';
 import axios from "axios";
 
-const UserModalData = (user) => {
+const EditUserModalData = (user) => {
 
     const [userId] = useState(user.id);
     const [userAvatar] = useState(user.avatar_url);
@@ -35,7 +35,7 @@ const UserModalData = (user) => {
                     <br />
                     <h1 id="modal-username">{userLogin}</h1>
 
-                    <span id="modal-id">ID: {userId}</span><br />
+                    <span id="modal-id">Identification: {userId}</span><br />
                 </div>
 
                 <div className="modal-container">
@@ -47,11 +47,11 @@ const UserModalData = (user) => {
                     <input type="text" className="modal-input" value={userURL} onChange={handleUserURLChange} />
                     <br /><br />
 
-                    <button id="modal-save-btn" type="submit"><SaveIcon />Update</button>
+                    <button id="modal-save-btn" type="submit"><SaveIcon />Save</button>
                 </div>
             </form>
         </>
     )
 }
 
-export default UserModalData;
+export default EditUserModalData;

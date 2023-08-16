@@ -1,6 +1,6 @@
 .header{
     grid-area: header;
-
+    background-color: rgb(76, 32, 90);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,14 +11,6 @@
 
     padding-left: 50px;
     padding-right: 50px;
-}
-
-#light .header {
-    background-color: rgb(76, 32, 90);
-}
-
-#dark .header{
-    background-color: rgb(25, 7, 65);
 }
 
 .invisible{

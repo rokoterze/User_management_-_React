@@ -16,8 +16,9 @@
 
     font-family: 'Poppins';
 
-    background-image: url("./assets/background-light.jpg");
-
+    background: url("./assets/background-light.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 

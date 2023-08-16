@@ -3,16 +3,22 @@ import axios from "axios";
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import UserModal from "./user-modal/UserModal";
-import UserModalData from "./user-modal/UserModalData";
+import EditUserModal from "./modals/edit-user-modal/EditUserModal";
+import EditUserModalData from "./modals/edit-user-modal/EditUserModalData";
+import AddUserModal from "./modals/add-user-modal/AddUserModal";
+import AddUserModalData from "./modals/add-user-modal/AddUserModalData";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 const DatabaseMainData = () => {
   const [users, setUsers] = useState([]);
 
-  const [userModal, setUserModal] = useState(null);
+  const [editUserModal, setEditUserModal] = useState(null);
+  const [buttonEditModal, setButtonEditModal] = useState(false);
+
+  const [buttonAddModal, setButtonAddModal] = useState(false);
+
 
   const [filterText, setFilterText] = useState("");
-  const [buttonPopup, setButtonPopup] = useState(false);
 
   useEffect(() => {
     axios.get("http://localhost:4000/getUsers")
@@ -31,8 +37,19 @@ const DatabaseMainData = () => {
   return (
     <>
       <div className="main-header">
-        <div className="main-header-search">
+        <div>
           <input type="text" id="search-input" placeholder="Live search by Username.." onChange={(event) => setFilterText(event.target.value)} />
+        </div>
+
+        <div>
+          <button className="btn" id="add-user-btn" onClick={() => {
+            setButtonAddModal(true)
+          }}
+          ><PersonAddIcon /></button>
+
+          <AddUserModal trigger={buttonAddModal} setTrigger={setButtonAddModal}>
+            <AddUserModalData />
+          </AddUserModal>
         </div>
       </div>
 
@@ -57,21 +74,21 @@ const DatabaseMainData = () => {
                 <td className='linkTd'><a href={user.html_url} target='blank' className='link'>{user.html_url}</a></td>
                 <td>
                   <button className="btn" id="open-profile-btn" onClick={() => {
-                    setButtonPopup(true)
-                    setUserModal(user)
-                  }}><EditIcon />Open Profile</button>
+                    setButtonEditModal(true)
+                    setEditUserModal(user)
+                  }}><EditIcon /></button>
 
 
-                  <UserModal trigger={buttonPopup} setTrigger={setButtonPopup}>
-                    <UserModalData {...userModal} />
-                  </UserModal>
+                  <EditUserModal trigger={buttonEditModal} setTrigger={setButtonEditModal}>
+                    <EditUserModalData {...editUserModal} />
+                  </EditUserModal>
 
                 </td>
                 <td>
                   <button className="btn" id="delete-profile-btn" onClick={async () => {
                     await axios.delete(`http://localhost:4000/deleteUser/${user.id}`);
                     window.location.reload();
-                  }}><DeleteIcon /> Delete</button>
+                  }}><DeleteIcon /></button>
                 </td>
               </tr>
             ))}

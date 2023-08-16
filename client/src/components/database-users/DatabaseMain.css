@@ -25,8 +25,10 @@
     flex-direction: row;
 
     align-items: center;
+    justify-content: space-between;
 
     padding-left: 30px;
+    padding-right: 30px;
 }
 
 #search-input {
@@ -49,4 +51,9 @@
 
     margin: 5px;
     border-radius: 10px;
+}
+
+#add-user-btn{
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 123, 255, 0.82);
 }

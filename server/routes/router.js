@@ -3,28 +3,40 @@ const router = express.Router();
 const schemas = require('../models/schemas');
 
 router.post('/insertUser', async (req, res) => {
-  const { id, avatar_url, login, html_url } = req.body;
+  try {
+    const { id, avatar_url, login, html_url } = req.body;
 
-  const userData = { id: id, avatar_url: avatar_url, login: login, html_url: html_url };
+    const userData = { id: id, avatar_url: avatar_url, login: login, html_url: html_url };
 
-  const newUser = new schemas.Users(userData);
+    const newUser = new schemas.Users(userData);
 
-  const saveUser = await newUser.save();
+    const saveUser = await newUser.save();
 
-  if (saveUser) {
-    console.log(newUser);
+    if (saveUser) {
+      res.status(200).json(newUser);
+    }
+
+  } catch (error) {
+    res.status(500).json({ message: error.message })
   }
+
   res.end();
 })
 
 router.get('/getUsers', async (req, res) => {
-  const users = schemas.Users;
+  try {
+    const users = schemas.Users;
 
-  const userData = await users.find({}).exec();
+    const userData = await users.find({}).exec();
 
-  if (userData) {
-    res.send(JSON.stringify(userData));
+    if (userData) {
+      res.status(200).json(userData);
+    }
+
+  } catch (error) {
+    res.status(500).json({ message: error.message })
   }
+
   res.end();
 })
 
